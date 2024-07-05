@@ -1,11 +1,24 @@
 #include <Arduino.h>
 
+const int analogInPin = A0;
+
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
-  Serial.println("Hello World");
+
+  pinMode(D4, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  int out = analogRead(analogInPin);
+
+  Serial.print("Analog input = ");
+  Serial.println(out);
+
+  if (out > 500) {
+    digitalWrite(D4, HIGH);
+  } else {
+    digitalWrite(D4, LOW);
+  }
+
+  delay(10);
 }
