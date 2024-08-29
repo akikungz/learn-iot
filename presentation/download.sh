@@ -1,0 +1,1 @@
+curl -o main.zip https://codeload.github.com/akikungz/learn-iot/zip/refs/heads/main
