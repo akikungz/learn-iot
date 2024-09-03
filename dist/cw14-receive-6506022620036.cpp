@@ -31,15 +31,6 @@ void onDataRecv (uint8_t * mac, uint8_t *incomingData, uint8_t len) {
 
     Serial.print("Bytes received: ");
     Serial.println(len);
-
-    // Serial.print("Temperature: ");
-    // Serial.println(message.temperature);
-
-    // Serial.print("Humidity: ");
-    // Serial.println(message.humidity);
-
-    // Serial.print("SW_1: ");
-    // Serial.println(message.SW_1);
 }
 
 void setup() {
