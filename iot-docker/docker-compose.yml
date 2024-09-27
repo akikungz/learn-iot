@@ -1,0 +1,56 @@
+services:
+  node-red:
+    image: nodered/node-red
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./data/node-red:/data
+    environment:
+      - TZ=Asia/Bangkok
+      - NODE_RED_ENABLE_PROJECTS=true
+      - NODE_RED_ENABLE_SAFE_MODE=true
+      - NODE_RED_USER_DIR=/data
+      - NODE_RED_CREDENTIAL_SECRET=secret
+      - NODE_RED_PROJECTS_DIR=/data/projects
+      - NODE_RED_FLOW_FILE=flows.json
+      - NODE_RED_SETTINGS_FILE=settings.js
+      - NODE_RED_PROJECT_NAME=iot-docker
+      - NODE_RED_PROJECT_DESCRIPTION="IoT Docker"
+      - NODE_RED_PROJECT_VERSION=0.0.1
+      - NODE_RED_PROJECT_BASE_URL=/
+      - NODE_RED_PROJECT_UI=ui
+      - NODE_RED_PROJECT_UI_NAME=IoT Docker
+      - NODE_RED_PROJECT_UI_DESCRIPTION="IoT Docker"
+      - NODE_RED_PROJECT_UI_ICON=fa-cogs
+      - NODE_RED_PROJECT_UI_COLOR=#f3c300
+      - NODE_RED_PROJECT_UI_FAVICON=fa-cogs
+      - NODE_RED_PROJECT_UI_FAVICON_COLOR=#f3c300
+      - NODE_RED_PROJECT_UI_FAVICON_BACKGROUND=#333333
+      - NODE_RED_PROJECT_UI_FAVICON_SIZE=32
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_SIZE=16
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_COLOR=#f3c300
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_BACKGROUND=#333333
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_SIZE=16
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_COLOR=#f3c300
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_BACKGROUND=#333333
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_SIZE=16
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_COLOR=#f3c300
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_BACKGROUND=#333333
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_SIZE=16
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_COLOR=#f3c300
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_BACKGROUND=#333333
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_SIZE=16
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_COLOR=#f3c300
+      - NODE_RED_PROJECT_UI_FAVICON_FONT_BACKGROUND=#333333
+    depends_on:
+      - mosquitto
+  
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./data/mosquitto/data:/etc/mosquitto
+      - ./data/mosquitto/log:/var/log/mosquitto
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
